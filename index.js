@@ -1,10 +1,15 @@
 const buttons = document.querySelectorAll(".but-js");
 const resultInput = document.querySelector(".result-js");
+const placeholder = document.querySelector(".placeholder-js");
 
-const resetResult = () => (resultInput.value = "");
+const resetResult = () => {
+    resultInput.value = "";
+    placeholder.innerText = "";
+};
 
 const calculation = (currentValue) => {
     calculatedValue = eval(currentValue);
+    placeholder.innerText = currentValue;
     resultInput.value = calculatedValue;
 };
 

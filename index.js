@@ -1,8 +1,8 @@
-const buttons = document.querySelectorAll(".but-js");
-const resultInput = document.querySelector(".result-js");
-const placeholder = document.querySelector(".placeholder-js");
+const buttons = document.querySelectorAll(".but-js"),
+    resultInput = document.querySelector(".result-js"),
+    placeholder = document.querySelector(".placeholder-js");
+    
 const Operators = ["+", "-", "*", "/"];
-let isAnyOperator = false;
 
 const resetResult = () => {
     resultInput.value = "";
@@ -26,13 +26,19 @@ const addNumber = (currentBtn) => {
 
 const handleClick = (event) => {
     const currentBut = event.target.innerText;
+    // 초기화
     if (currentBut === "AC") {
         resetResult();
+
+        // 계산
     } else if (currentBut === "=") {
         calculation(resultInput.value);
+
+        // 연산자 입력 시 추가만
     } else if (Operators.includes(currentBut)) {
-        isAnyOperator = true;
         addNumber(currentBut);
+
+        // 추가와 함께 placeholder에 결과 보여주기
     } else {
         addNumber(currentBut);
         tempCalculation(resultInput.value);
